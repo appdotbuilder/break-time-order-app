@@ -1,9 +1,14 @@
 import { type BreakTimeItem } from '../schema';
 
-export async function getAvailableItems(): Promise<BreakTimeItem[]> {
-    // This is a placeholder declaration! Real code should be implemented here.
-    // The goal of this handler is returning the fixed list of available break time items.
-    // This is a simple handler that returns the predefined list: Tea, Coffee, Milk, Boost, Horlicks
+export const getAvailableItems = async (): Promise<BreakTimeItem[]> => {
+  try {
+    // Return the fixed list of available break time items
+    // These items correspond to the breakTimeItemEnum in the database schema
+    const availableItems: BreakTimeItem[] = ['Tea', 'Coffee', 'Milk', 'Boost', 'Horlicks'];
     
-    return ['Tea', 'Coffee', 'Milk', 'Boost', 'Horlicks'];
-}
+    return availableItems;
+  } catch (error) {
+    console.error('Failed to get available items:', error);
+    throw error;
+  }
+};
